@@ -9,14 +9,17 @@ allprojects {
         maven {
             url "http://google.bintray.com/googlevr"
         }
+//        flatDir {
+//            dirs '../../GearVRf/GVRf/gearvrf-libs', '../../../GearVRf/GVRf/gearvrf-libs', '../../../../GearVRf/GVRf/gearvrf-libs'
+//        }
     }
 }
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    buildToolsVersion "25.0.3"
     defaultConfig {
-        applicationId "com.example.org.gvrfapplication"
+        applicationId "com.samsung.sample_shooter"
         minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
@@ -41,10 +44,58 @@ ext.gearvrfVersion='4.0.1-SNAPSHOT'
 project.ext.jomlVersion = "1.9.1-SNAPSHOT"
 
 dependencies {
-    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.google.code.gson:gson:2.8.2'
     compile "org.joml:joml-android:${jomlVersion}"
     compile "org.gearvrf:framework:$gearvrfVersion"
     compile "org.gearvrf:backend_daydream:$gearvrfVersion"
     compile "org.gearvrf:backend_oculus:$gearvrfVersion"
-    compile 'com.google.vr:sdk-base:1.30.0'
+    compile 'com.google.vr:sdk-base:1.101.0'
 }
+
+//dependencies {
+//    compile "com.google.code.gson:gson:2.8.2"
+//    compile "org.joml:joml-android:${jomlVersion}"
+//
+//    if (findProject(':framework')) {
+//        compile project(':framework')
+//    } else {
+//        debugCompile(name: 'framework-debug', ext: 'aar')
+//        releaseCompile(name: 'framework-release', ext: 'aar')
+//    }
+//
+//    if (project.hasProperty("only_daydream")) {
+//        if (findProject(':backend_daydream')) {
+//            compile project(':backend_daydream')
+//        } else {
+//            debugCompile(name: 'backend_daydream-debug', ext: 'aar')
+//            releaseCompile(name: 'backend_daydream-release', ext: 'aar')
+//        }
+//        compile "com.google.vr:sdk-base:1.101.0"
+//        compile "com.google.vr:sdk-controller:1.101.0"
+//    } else {
+//        if (project.hasProperty("no_oculus")) {
+//            if (findProject(':backend')) {
+//                compile project(':backend')
+//            } else {
+//                debugCompile(name: 'backend-debug', ext: 'aar')
+//                releaseCompile(name: 'backend-release', ext: 'aar')
+//            }
+//        } else { //default oculus+daydream
+//            if (findProject(':backend_daydream')) {
+//                compile project(':backend_daydream')
+//            } else {
+//                debugCompile(name: 'backend_daydream-debug', ext: 'aar')
+//                releaseCompile(name: 'backend_daydream-release', ext: 'aar')
+//            }
+//            compile "com.google.vr:sdk-base:1.101.0"
+//            compile "com.google.vr:sdk-controller:1.101.0"
+//
+//            if (findProject(':backend_oculus')) {
+//                compile project(':backend_oculus')
+//            } else {
+//                debugCompile(name: 'backend_oculus-debug', ext: 'aar')
+//                releaseCompile(name: 'backend_oculus-release', ext: 'aar')
+//            }
+//        }
+//    }
+//}
