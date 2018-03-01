@@ -53,7 +53,8 @@ public class GameLogicManager {
         public void onTouchEnd(GVRSceneObject sceneObj, GVRPicker.GVRPickedObject pickInfo) {
             sceneObj.getRenderData().getMaterial().setColor(Color.RED);
 
-            sceneObj.getComponent(GVRC)
+            ShooterTargetBehavior target = (ShooterTargetBehavior) sceneObj.getComponent(ShooterTargetBehavior.getComponentType());
+            target.onShot();
         }
 
         public void onExit(GVRSceneObject sceneObj, GVRPicker.GVRPickedObject pickInfo) {

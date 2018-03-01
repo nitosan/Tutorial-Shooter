@@ -13,11 +13,16 @@ import org.joml.Vector4f;
 
 public class TargetPointer extends GVRBehavior {
 
-    GVRSceneObject _target;
+    static private long TYPE_TARGET_POINTER = newComponentType(TargetPointer.class);
+
+    private GVRSceneObject _target;
 
     public TargetPointer(GVRContext gvrContext) {
         super(gvrContext);
+        mType = TYPE_TARGET_POINTER;
     }
+
+    static public long getComponentType() { return TYPE_TARGET_POINTER; }
 
     @Override
     public void onDrawFrame(float frameTime) {

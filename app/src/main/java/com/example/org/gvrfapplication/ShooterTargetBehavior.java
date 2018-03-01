@@ -9,7 +9,16 @@ import org.gearvrf.GVRContext;
 
 public class ShooterTargetBehavior extends GVRBehavior {
 
+    static private long TYPE_SHOOTER_TARGET_BEHAVIOR = newComponentType(ShooterTargetBehavior.class);
+
     protected ShooterTargetBehavior(GVRContext gvrContext) {
         super(gvrContext);
+        mType = TYPE_SHOOTER_TARGET_BEHAVIOR;
+    }
+
+    static public long getComponentType(){return TYPE_SHOOTER_TARGET_BEHAVIOR;}
+
+    public void onShot() {
+        //
     }
 }
