@@ -87,48 +87,6 @@ public class MainActivity extends GVRActivity {
 
         }
 
-//        private ITouchEvents mPickHandler = new GVREventListeners.TouchEvents()
-//        {
-//            private GVRSceneObject movingObject;
-//
-//            public void onEnter(GVRSceneObject sceneObj, GVRPicker.GVRPickedObject pickInfo)
-//            {
-//                sceneObj.getRenderData().getMaterial().setColor(Color.RED);
-//            }
-//
-//            public void onTouchStart(GVRSceneObject sceneObj, GVRPicker.GVRPickedObject pickInfo)
-//            {
-//                if (movingObject == null)
-//                {
-//                    sceneObj.getRenderData().getMaterial().setColor(Color.BLUE);
-//                    if (mController.startDrag(sceneObj))
-//                    {
-//                        movingObject = sceneObj;
-//                    }
-//                }
-//            }
-//
-//            public void onTouchEnd(GVRSceneObject sceneObj, GVRPicker.GVRPickedObject pickInfo)
-//            {
-//                sceneObj.getRenderData().getMaterial().setColor(Color.RED);
-//                if (sceneObj == movingObject)
-//                {
-//                    mController.stopDrag();
-//                    movingObject = null;
-//                }
-//            }
-//
-//            public void onExit(GVRSceneObject sceneObj, GVRPicker.GVRPickedObject pickInfo)
-//            {
-//                sceneObj.getRenderData().getMaterial().setColor(Color.GRAY);
-//                if (sceneObj == movingObject)
-//                {
-//                    mController.stopDrag();
-//                    movingObject = null;
-//                }
-//            }
-//        };
-
         @Override
         public SplashMode getSplashMode() {
             return SplashMode.NONE;
