@@ -46,6 +46,8 @@ public class MainActivity extends GVRActivity {
 
     private final class Main extends GVRMain {
 
+        private GameLogicManager gameLogicManager;
+
         @Override
         public void onInit(GVRContext gvrContext) throws Throwable {
 
@@ -65,11 +67,13 @@ public class MainActivity extends GVRActivity {
 
             gvrContext.getMainScene().addSceneObject(skybox);
 
-            GVRSceneObject cube = Gvr.createCube();
-            cube.getTransform().setPosition(0,0,-4);
-            cube.getTransform().setScale(0.5f, 0.5f, 0.5f);
-            mScene.addSceneObject(cube);
+            //Origin point
+            GVRSceneObject originObject = Gvr.createCube();
+            originObject.getTransform().setPosition(0,0,-4);
+            originObject.getTransform().setScale(0.2f, 0.2f, 0.2f);
+            mScene.addSceneObject(originObject);
 
+            //Target Pointer
             GVRSceneObject pointer = new GVRSceneObject(mGvrContext);
 
             GVRModelSceneObject arrow = mGvrContext.getAssetLoader().loadModel("arrow.fbx");
@@ -82,14 +86,11 @@ public class MainActivity extends GVRActivity {
             mCameraRig.addChildObject(pointer);
 
             TargetPointer targetPointer = new TargetPointer(mGvrContext);
-            targetPointer.setTarget(cube);
+            targetPointer.setTarget(originObject);
             pointer.attachComponent(targetPointer);
 
-        }
-
-        @Override
-        public SplashMode getSplashMode() {
-            return SplashMode.NONE;
+            //
+            gameLogicManager = new GameLogicManager(gvrContext, mScene);
         }
 
         @Override

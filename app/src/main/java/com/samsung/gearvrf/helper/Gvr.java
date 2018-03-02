@@ -125,7 +125,7 @@ public class Gvr {
                 cursor.getRenderData().setDepthTest(false);
                 cursor.getRenderData().setRenderingOrder(GVRRenderData.GVRRenderingOrder.OVERLAY);
                 newController.setCursor(cursor);
-                newController.setCursorDepth(-7);
+                newController.setCursorDepth(-9);
                 newController.setCursorControl(GVRCursorController.CursorControl.PROJECT_CURSOR_ON_SURFACE);
                 s_Controller = newController;
             }
